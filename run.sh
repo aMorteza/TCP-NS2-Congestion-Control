@@ -1,6 +1,6 @@
 #!/bin/bash
 
-iterations=1
+iterations=2
 algorithms=("Tahoe" "NewReno" "Vegas")
 steps=($(seq 1 1 ${iterations}));
 #Creating trace files 

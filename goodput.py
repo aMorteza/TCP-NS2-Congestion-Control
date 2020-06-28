@@ -3,11 +3,6 @@ import matplotlib.pyplot as plt
 import sys
 import numpy as np
 
-#T = 1000ms = 1s
-#bits = count * 1000 byte = count * 1000 * 8 Mbit
-def get_goodput(rec_count, packet_size=1000, time_lenght=1):
-  return (float(rec_count * packet_size)/time_lenght) * (8 / 1000000)
-
 def link_received_count(file_name, source_node,  dest_node, flow):
   count = 0
   of = open("traces/"+file_name,"r")
@@ -23,6 +18,12 @@ def link_received_count(file_name, source_node,  dest_node, flow):
       # print("event:", event, "source:", source, "dest:", dest, "size:", size, "flag:", flag)
       count += 1
   return count
+
+#T = 1000ms = 1s
+#bits = count * 1000 byte = count * 1000 * 8 Mbit
+def get_goodput(rec_count, packet_size=1000, time_lenght=1):
+  #No need to Rip off the header
+  return (float(rec_count * packet_size)/time_lenght) * (8 / 1000000)  
 
 def get_goodputs(iterations, algorithm, time_lenght = 1):
   rec_count_0 = 0
