@@ -12,8 +12,8 @@ Here we plot average congestion window size change (CWND), Goodput, Packet Loss 
 
 * Network simulation iteration numbers is configurable in start.sh file.
 * The .png flows plots stored in /img folders.
-* The .tr trace files stored in /traces used for ploting.
-* The .nam topology animation files stored in /nams used for network animator.
+* The .tr trace files stored in /traces used to calculate congestion parameters.
+* The .nam trace files stored in /nams used for network animator.
 
 * Uncomment line 51 in sim.tcl (finish function) to get ns2 topology animations.
 
