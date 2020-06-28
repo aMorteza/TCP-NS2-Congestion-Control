@@ -38,7 +38,7 @@ $ns trace-all $tracefile
 
 #Define a 'finish' procedure
 proc finish {} {
-  global simtype ns nf tracefile flowtrace0 flowtrace1 rtttrace
+  global simtype nam_path ns nf tracefile flowtrace0 flowtrace1 rtttrace
   $ns flush-trace
   # Close the trace file 
   close $tracefile 
