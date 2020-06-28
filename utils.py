@@ -4,6 +4,17 @@ import sys
 import numpy as np
 
 
+def add_items(list1, list2):
+  if len(list1) == 0:
+    return list2
+  elif len(list2) == 0:
+    return list1
+  else:
+    res_list = [] 
+    for i in range(0, len(list1)): 
+      res_list.append(list1[i] + list2[i])
+    return res_list
+
 def link_count(sign, file_name, source_node,  dest_node, flow):
   count = 0
   of = open("traces/"+file_name,"r")

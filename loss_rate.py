@@ -9,7 +9,7 @@ def get_rate(dropped_pck_count, sent_pck_count):
   return (float(dropped_pck_count * 100)/ sent_pck_count)
 
 
-def get_loss(iterations, algorithm):
+def get_averages(iterations, algorithm):
   dropped_count_0 = 0
   enqueued_count_0 = 0
   dropped_count_1 = 0

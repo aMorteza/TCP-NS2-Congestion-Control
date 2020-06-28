@@ -10,7 +10,7 @@ def get_received_packets_bandwidth(rec_count, packet_size=1000, time_lenght=1):
   #No need to Rip off the header
   return (float(rec_count * packet_size)/time_lenght) * (8 / 1000000)  
 
-def get_goodputs(iterations, algorithm, time_lenght = 1):
+def get_averages(iterations, algorithm, time_lenght = 1):
   rec_count_0 = 0
   rec_count_1 = 0
   for i in range(1, iterations + 1):

@@ -24,9 +24,9 @@ set rttflow "tcp${interation}-${algorithm}-rtt"
 
 puts $simtype
 
-# Open the NAM trace file 
 set trace_path "traces/"
 set nam_path "nams/"
+# Open the NAM trace file 
 set nf [open  ${nam_path}${simtype}.nam w] 
 $ns namtrace-all $nf 
 set tracefile [open  ${trace_path}${simtype}.tr w]
@@ -174,7 +174,6 @@ $ns attach-agent $n5 $end1
 $ns connect $tcp1 $end1
 $tcp1 set fid_ 2
 
-
 set ftp1 [new Application/FTP] 
 $ftp1 attach-agent $tcp1 
 
@@ -206,9 +205,11 @@ $ns connect $p1 $p5
 
 #Schedule the connection data flow; start sending data at T=0, stop at T=1000.0
 $ns at 0 "$ftp0 start"
-for { set a 1}  {$a < 1001} {incr a} {
+for { set a 0}  {$a < 1001} {incr a} {
   $ns at $a "$p0 send"
-  $ns at $a "$p1 send" 
+}
+for { set a 0}  {$a < 1001} {incr a} {
+  $ns at $a "$p1 send"
 }
 $ns at 0 "$ftp1 start"
 $ns at 1000 "$ftp1 stop"
