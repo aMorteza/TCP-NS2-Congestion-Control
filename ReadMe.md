@@ -1,8 +1,7 @@
-A comparsion on network congestion control algorithms using ns2 tcl simulation,
+A comparsion on network congestion control algorithms on TCP connection using ns2 simulation
 ====================
 
-plot congestion window size change (CWND), Goodput, Packet loss rate and RTT for two traffic flows on TCP connection during 1000 ms. 
-Network simulation iteration numbers is configurable in start.sh file.
+Here we plot average congestion window size change (CWND), Goodput, Packet loss rate and RTT for ten iterations of on two traffic flows with TCP connection during 1000 ms. 
 
 ![panel](img/topology.png)
 
@@ -11,14 +10,16 @@ Network simulation iteration numbers is configurable in start.sh file.
 
 `./start.sh`
 
-* .png flows plots stored in /img folders
-* .tr trace files stored in /traces
-* .nam topology animation files stored in /nams.
+* Network simulation iteration numbers is configurable in start.sh file.
+* The .png flows plots stored in /img folders.
+* The .tr trace files stored in /traces used for ploting.
+* The .nam topology animation files stored in /nams used for network animator.
 
-* to get ns2 topology animations uncomment line 51 in sim.tcl finish function
+* to get ns2 topology animations uncomment line 51 in sim.tcl finish function.
 
 `51 # exec nam ${nam_path}${simtype}.nam &`
 
+![panel](img/nam.png)
 
 - Any question? feel free to mail 
  [Amirhosein_Morteza@yahoo.com](https://Amirhosein_Morteza@yahoo.com) 
