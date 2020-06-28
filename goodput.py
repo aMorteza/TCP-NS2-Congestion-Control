@@ -35,8 +35,8 @@ def get_goodputs(iterations, algorithm, time_lenght = 1):
     rec_count_1 += link_received_count("tcp"+str(i)+"-"+algorithm+".tr", 1, 2, 2)
     rec_count_1 += link_received_count("tcp"+str(i)+"-"+algorithm+".tr", 2, 3, 2)
     rec_count_1 += link_received_count("tcp"+str(i)+"-"+algorithm+".tr", 3, 5, 2)
-  rec_count_0 = float(rec_count_0)/iterations
-  rec_count_1 = float(rec_count_1)/iterations
+  rec_count_0 /= iterations
+  rec_count_1 /= iterations
   return get_goodput(rec_count_0), get_goodput(rec_count_1)
 
 def plot_goodputs(flow0, flow1, labels):
@@ -44,8 +44,8 @@ def plot_goodputs(flow0, flow1, labels):
   width = 0.35  # the width of the bars
 
   fig, ax = plt.subplots()
-  rects1 = ax.bar(x - width/2, flow0, width, label='Flow0')
-  rects2 = ax.bar(x + width/2, flow1, width, label='Flow1')
+  rects1 = ax.bar(x - width/2, flow0, width, color="b", label='Flow0')
+  rects2 = ax.bar(x + width/2, flow1, width, color="r", label='Flow1')
 
   def autolabel(rects):
         """Attach a text label above each bar in *rects*, displaying its height."""
@@ -58,7 +58,7 @@ def plot_goodputs(flow0, flow1, labels):
                         ha='center', va='bottom')
 
 
-  ax.set_ylabel('Goodputs')
+  ax.set_ylabel('Goodputs (Mb/s)')
   ax.set_title('Goodputs by flow and algorithm')
   ax.set_xticks(x)
   ax.set_xticklabels(labels)
