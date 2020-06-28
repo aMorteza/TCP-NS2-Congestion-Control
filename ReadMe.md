@@ -1,7 +1,7 @@
 A comparsion on network congestion control algorithms on TCP connection using ns2 simulation
 ====================
 
-Here we plot average congestion window size change (CWND), Goodput, Packet loss rate and RTT for ten iterations of on two traffic flows with TCP connection during 1000 ms. 
+Here we plot average congestion window size change (CWND), Goodput, Packet Loss rate and RTT for two traffic flows with TCP connection during 1000 ms for 10 iterations. 
 
 ![panel](img/topology.png)
 
