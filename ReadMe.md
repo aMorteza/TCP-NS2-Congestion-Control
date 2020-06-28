@@ -2,7 +2,7 @@
 plot congestion window size change (CWND), Goodput, Packet loss rate and RTT for two traffic flows on TCP connection during 1000 ms. 
 Network simulation iteration numbers is configurable in start.sh file.
 
-###To start simulation and run:
+### To start simulation run:
 
 `./start.sh`
 
