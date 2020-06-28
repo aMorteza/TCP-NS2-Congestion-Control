@@ -40,8 +40,8 @@ def get_cwnd(iterations, algorithm):
 def plot_flows_cwnd(time, average_cwnd_0, average_cwnd_1, algorithm):
 	plt.figure(figsize = [10, 7])
 	plt.title(algorithm, fontsize=16)
-	plt.plot(time[0:len(average_cwnd_0)], average_cwnd_0, color="b")
-	plt.plot(time[0:len(average_cwnd_1)], average_cwnd_1, color="r")
+	plt.plot(time[0:len(average_cwnd_0)], average_cwnd_0[0:len(time)], color="b")
+	plt.plot(time[0:len(average_cwnd_1)], average_cwnd_1[0:len(time)], color="r")
 	plt.legend(['Flow1 (delay 5ms)', 'Flow2 (variable delay 5-25ms)'], loc='best')
 
 	plt.xlabel('Time', fontsize=14) 

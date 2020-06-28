@@ -20,6 +20,8 @@ $ns color 2 Red
 set simtype "tcp${interation}-${algorithm}"
 set simflow0 "tcp${interation}-${algorithm}-flow0"
 set simflow1 "tcp${interation}-${algorithm}-flow1"
+set rttflow "tcp${interation}-${algorithm}-rtt"
+
 puts $simtype
 
 # Open the NAM trace file 
@@ -30,21 +32,24 @@ $ns namtrace-all $nf
 set tracefile [open  ${trace_path}${simtype}.tr w]
 set flowtrace0 [open  ${trace_path}${simflow0}.tr w]
 set flowtrace1 [open  ${trace_path}${simflow1}.tr w]
+set rtttrace [open  ${trace_path}${rttflow}.tr w]
+
 $ns trace-all $tracefile
 
 #Define a 'finish' procedure
 proc finish {} {
-        global simtype ns nf tracefile flowtrace0 flowtrace1
-        $ns flush-trace
-        # Close the trace file 
-        close $tracefile 
-        close $flowtrace0
-        close $flowtrace1 
-        # Close the NAM file 
-		close $nf 
-		# Execute NAM on the trace file 
-		# exec nam ${nam_path}${simtype}.nam & 
-        exit 0
+  global simtype ns nf tracefile flowtrace0 flowtrace1 rtttrace
+  $ns flush-trace
+  # Close the trace file 
+  close $tracefile 
+  close $flowtrace0
+  close $flowtrace1
+  close $rtttrace 
+  # Close the NAM file 
+  close $nf 
+  # Execute NAM on the trace file 
+  # exec nam ${nam_path}${simtype}.nam & 
+  exit 0
 }
 
 # Create six nodes
@@ -172,16 +177,44 @@ $tcp1 set fid_ 2
 
 set ftp1 [new Application/FTP] 
 $ftp1 attach-agent $tcp1 
-# $ftp1 set type_ FTP 
+
+
+#Define a 'recv' function for the class 'Agent/Ping'
+Agent/Ping instproc recv {from rtt} {
+  global rtttrace algorithm
+  $self instvar node_
+  puts $rtttrace "$algorithm [$node_ id] $from rtt_ $rtt"
+}
+
+#Create two ping agents and attach them to the nodes n0 and n2
+set p0 [new Agent/Ping]
+$ns attach-agent $n0 $p0
+
+set p4 [new Agent/Ping]
+$ns attach-agent $n4 $p4
+
+set p1 [new Agent/Ping]
+$ns attach-agent $n1 $p1
+
+set p5 [new Agent/Ping]
+$ns attach-agent $n5 $p5
+
+#Connect the two agents
+$ns connect $p0 $p4
+$ns connect $p1 $p5
+
 
 #Schedule the connection data flow; start sending data at T=0, stop at T=1000.0
 $ns at 0 "$ftp0 start"
+for { set a 1}  {$a < 1001} {incr a} {
+  $ns at $a "$p0 send"
+  $ns at $a "$p1 send" 
+}
 $ns at 0 "$ftp1 start"
 $ns at 1000 "$ftp1 stop"
 $ns at 1000 "$ftp0 stop"
 # Call the finish procedure after 1000 seconds of simulation time 
 $ns at 1000 "finish"
-
 
 # Run the simulation 
 $ns run 
