@@ -13,12 +13,16 @@ traces.
 ```
 sudo apt-get install -y nam
 sudo apt-get install -y ns2
+```
+
+* Tcl (Tool Command Language) for Simulation. 
+
+```
 sudo apt install tclsh 
 ```
-use Tcl (Tool Command Language) for Simulation. 
+ 
 
-
-### To start simulation run:
+### To run simulation:
 
 `./start.sh`
 
@@ -37,7 +41,7 @@ use Tcl (Tool Command Language) for Simulation.
 
 ![loss](img/loss/bar.png)
 
-There is fairness for loss in the flows, congestion avoidance algorithm is effective, for example "Vegas" has a loss rate of zero, simply because it never overflows the queue.
+* There is fairness for loss in the flows, congestion avoidance algorithm is effective, for example "Vegas" has a loss rate of zero, simply because it never overflows the queue.
 
 - Any question? feel free to mail 
  [Amirhosein_Morteza@yahoo.com](https://Amirhosein_Morteza@yahoo.com) 
