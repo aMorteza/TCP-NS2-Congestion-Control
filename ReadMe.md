@@ -32,5 +32,11 @@ use Tcl (Tool Command Language) for Simulation.
 
 ![nam](img/nam.png)
 
+* Average characteristics (CWND, Goodput, Loss rate and RTT) plots auto saved in /img.
+
+![loss](img/loss/bar.png)
+
+
+
 - Any question? feel free to mail 
  [Amirhosein_Morteza@yahoo.com](https://Amirhosein_Morteza@yahoo.com) 
