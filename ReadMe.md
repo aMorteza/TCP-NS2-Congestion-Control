@@ -2,7 +2,7 @@ A comparsion on network congestion control algorithms on TCP connection using ns
 ====================
 If the traffic in the network exceeds the network capacity, congestion is introduced in the network which creates packet loss.
 While tcp connection is used for data transmission, congestion is controlled through automatic adjustment of the data transmission rate.
-Here average congestion window size change (CWND), goodput, gacket loss rate and round trip time (RTT) for two traffic flows with TCP connection during 1000 ms for 10 iterations plotted. 
+Here plot the average congestion window size change (CWND), goodput, packet loss rate and round trip time (RTT) for two TCP traffic payloads during 1000 ms for 10 iterations. 
 
 ![topology](img/topology.png)
 
