@@ -1,6 +1,7 @@
 A comparsion on network congestion control algorithms on TCP connection using ns2 simulation
 ====================
-
+If the traffic in the network exceeds the network capacity, congestion is introduced in the network which creates packet loss.
+While tcp connection is used for data transmission congestion is controlled through automatic adjustment of the data transmission rate.
 Here we plot average congestion window size change (CWND), Goodput, Packet Loss rate and RTT for two traffic flows with TCP connection during 1000 ms for 10 iterations. 
 
 ![topology](img/topology.png)
@@ -36,7 +37,7 @@ use Tcl (Tool Command Language) for Simulation.
 
 ![loss](img/loss/bar.png)
 
-
+There is fairness for loss in the flows, congestion avoidance algorithm is effective, for example "Vegas" has a loss rate of zero, simply because it never overflows the queue.
 
 - Any question? feel free to mail 
  [Amirhosein_Morteza@yahoo.com](https://Amirhosein_Morteza@yahoo.com) 
