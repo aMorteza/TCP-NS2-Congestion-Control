@@ -5,6 +5,17 @@ Here we plot average congestion window size change (CWND), Goodput, Packet Loss 
 
 ![topology](img/topology.png)
 
+### NS2 Installation on mint17
+Nam is also needed to install. Nam (Network Animator) is an animation tool to graphically represent the network and packet 
+traces.
+
+```
+sudo apt-get install -y nam
+sudo apt-get install -y ns2
+sudo apt install tclsh 
+```
+use Tcl (Tool Command Language) for Simulation. 
+
 
 ### To start simulation run:
 
