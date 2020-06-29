@@ -14,5 +14,5 @@ done
 
 if [ $? -eq 0 ] 
 then
-	python3 plot.py $iterations ${algorithms[@]}   
+	python3 characteristics/plot.py $iterations ${algorithms[@]}   
 fi

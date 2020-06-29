@@ -5,7 +5,7 @@ from pprint import pprint
 import utils
 import cwnd
 import goodput
-import loss_rate
+import loss
 import rtt
 
 iterations = int(sys.argv[1])
@@ -30,7 +30,7 @@ for algorithm in algorithms:
 	average_gp_flow1.append(gp_flow1)
 
 	#PacketLossRate
-	plr_flow0, plr_flow1 = loss_rate.get_averages(iterations, algorithm)
+	plr_flow0, plr_flow1 = loss.get_averages(iterations, algorithm)
 	plr_flow0 = float("{:.4f}".format(plr_flow0))
 	plr_flow1 = float("{:.4f}".format(plr_flow1))
 	average_plr_flow0.append(plr_flow0)

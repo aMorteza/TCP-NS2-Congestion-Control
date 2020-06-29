@@ -107,7 +107,7 @@ if { $vegas == 0 } {
 } elseif { $tahoe == 0 } {
    set tcp0 [new Agent/TCP]
 } else {
-   puts "Error unknown congestion control algorithm for agent0!!!"
+   puts "Error unknown congestion control algorithm for TCP0!!!"
    exit 1 
 }
 
@@ -148,7 +148,7 @@ if { $vegas == 0 } {
 } elseif { $tahoe == 0 } {
    set tcp1 [new Agent/TCP]
 } else {
-   puts "Error unknown congestion control algorithm for agent0!!!"
+   puts "Error unknown congestion control algorithm for TCP1!!!"
    exit 1 
 }
 
