@@ -29,14 +29,14 @@ for algorithm in algorithms:
 	average_gp_flow0.append(gp_flow0)
 	average_gp_flow1.append(gp_flow1)
 
-	#PacketLossRate
+	#Packet Loss Rate
 	plr_flow0, plr_flow1 = loss.get_averages(iterations, algorithm)
 	plr_flow0 = float("{:.4f}".format(plr_flow0))
 	plr_flow1 = float("{:.4f}".format(plr_flow1))
 	average_plr_flow0.append(plr_flow0)
 	average_plr_flow1.append(plr_flow1)
 
-	#Round Trip time rate
+	#Round Trip Time Rate
 	average_rtt_0, average_rtt_1 = rtt.get_averages(iterations, algorithm) 
 	rtt.plot_flows(average_rtt_0, average_rtt_1, algorithm)
 
