@@ -43,5 +43,5 @@ sudo apt install tclsh
 
 * There is loss fairness for the flow pairs, but congestion avoidance algorithm is effective, for example "Vegas" has a loss rate of zero, simply because it never overflows the queue.
 
-- Any question? feel free to mail 
- [Amirhosein_Morteza@yahoo.com](https://Amirhosein_Morteza@yahoo.com) 
+* Any question? feel free to mail amh.morteza@gmail.com 
+ 
